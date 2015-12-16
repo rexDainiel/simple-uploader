@@ -82,7 +82,6 @@ class Uploader extends SimpleModule
   _xhrUpload: (file) ->
     formData = new FormData()
     formData.append(file.fileKey, file.obj)
-    formData.append("original_filename", file.name)
     formData.append(k, v) for k, v of file.params if file.params
 
     file.xhr = $.ajax
@@ -91,8 +90,6 @@ class Uploader extends SimpleModule
       processData: false
       contentType: false
       type: 'POST'
-      headers:
-        'X-File-Name': encodeURIComponent(file.name)
       xhr: ->
         req = $.ajaxSettings.xhr()
         if req

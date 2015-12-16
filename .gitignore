@@ -20,4 +20,4 @@ node_modules
 .bundle
 uploads
 vendor
-
+.idea
